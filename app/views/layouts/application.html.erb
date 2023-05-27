@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NaganoCake</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="h-25 d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 border-bottom">
+      <h5 class="my-0 mr-md-auto">LOGO</h5>
+      <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2" href="#"><button type="button" class="btn btn-light">about</button></a>
+        <a class="p-2 ml-3" href="#"><button type="button" class="btn btn-light">商品一覧</button></a>
+        <a class="p-2 ml-3" href="#"><button type="button" class="btn btn-light">新規作成</button></a>
+        <a class="p-2 ml-3" href="#"><button type="button" class="btn btn-light">ログイン</button></a>
+      </nav>
+      </div>
+    <%= yield %>
+     <div id="footer" class="fixed-bottom p-4 px-md-4 mb-3 border-top"></div>
+  </body>
+</html>
