@@ -14,10 +14,10 @@
     <div class="h-25 d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 border-bottom">
       <h5 class="my-0 mr-md-auto">LOGO</h5>
       <nav class="my-2 my-md-0 mr-md-3">
-        <a class="p-2" href="#"><button type="button" class="btn btn-light">about</button></a>
-        <a class="p-2 ml-3" href="#"><button type="button" class="btn btn-light">商品一覧</button></a>
-        <a class="p-2 ml-3" href="#"><button type="button" class="btn btn-light">新規作成</button></a>
-        <a class="p-2 ml-3" href="#"><button type="button" class="btn btn-light">ログイン</button></a>
+        <%= link_to homes_about_path, class: "p-2" do %><button type="button" class="p-2 btn btn-light">about</button><% end %>
+        <%= link_to homes_about_path, class: "p-2 ml-3" do %><button type="button" class="p-2 ml-3 btn btn-light">商品一覧</button><% end %>
+        <%= link_to new_customer_registration_path, class: "p-2 ml-3" do %><button type="button" class="p-2 ml-3 btn btn-light">新規作成</button><% end %>
+        <%= link_to new_customer_session_path, class: "p-2 ml-3" do %><button type="button" class="p-2 ml-3 btn btn-light">ログイン</button><% end %>
       </nav>
       </div>
     <%= yield %>
