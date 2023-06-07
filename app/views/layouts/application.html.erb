@@ -11,6 +11,27 @@
   </head>
 
   <body>
+    <% if admin_signed_in? %>
+    <div class="h-25 d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 border-bottom">
+      <h5 class="my-0 mr-md-auto">LOGO</h5>
+      <nav class="my-2 my-md-0 mr-md-3">
+        <%= link_to admin_items_path, class: "p-2" do %><button type="button" class="p-2 btn btn-light">商品一覧</button><% end %>
+        <%= link_to admin_customers_path, class: "p-2 ml-3" do %><button type="button" class="p-2 ml-3 btn btn-light">会員一覧</button><% end %>
+        <%= link_to admin_root_path, class: "p-2 ml-3" do %><button type="button" class="p-2 ml-3 btn btn-light">注文履歴一覧</button><% end %>
+        <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: "p-2 ml-3 btn btn-light" %>
+      </nav>
+      </div>
+    <% elsif customer_signed_in? %>
+    <div class="h-25 d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 border-bottom">
+      <h5 class="my-0 mr-md-auto">LOGO</h5>
+      <nav class="my-2 my-md-0 mr-md-3">
+        <%= link_to customers_mypage_path, class: "p-2" do %><button type="button" class="p-2 btn btn-light">マイページ</button><% end %>
+        <%= link_to items_path, class: "p-2 ml-3" do %><button type="button" class="p-2 ml-3 btn btn-light">商品一覧</button><% end %>
+        <%= link_to cart_items_path, class: "p-2 ml-3" do %><button type="button" class="p-2 ml-3 btn btn-light">カート</button><% end %>
+        <%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class: "p-2 ml-3 btn btn-light" %>
+      </nav>
+      </div>
+    <% else %>
     <div class="h-25 d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 border-bottom">
       <h5 class="my-0 mr-md-auto">LOGO</h5>
       <nav class="my-2 my-md-0 mr-md-3">
@@ -20,6 +41,7 @@
         <%= link_to new_customer_session_path, class: "p-2 ml-3" do %><button type="button" class="p-2 ml-3 btn btn-light">ログイン</button><% end %>
       </nav>
       </div>
+    <% end %>
     <%= yield %>
      <div id="footer" class="fixed-bottom p-4 px-md-4 mb-3 border-top"></div>
   </body>
