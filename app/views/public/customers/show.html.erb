@@ -1,0 +1,35 @@
+<h5 class = "ml-5">マイページ</h5>
+<div>
+<h4 class = "m-3 d-inline-block">登録情報</h4>
+<%= link_to "編集する", customers_mypage_edit_path, class: "btn btn-success" %>
+</div>
+
+<table class="table">
+  <tbody>
+    <tr>
+      <th scope="row">氏名</th>
+      <td><%= @customers.last_name + @customers.first_name %></td>
+    </tr>
+    <tr>
+      <th scope="row">カナ</th>
+      <td><%= @customers.last_name_kana + @customers.first_name_kana %></td>
+    </tr>
+    <tr>
+      <th scope="row">郵便番号</th>
+      <td><%= @customers.postal_code %></td>
+    </tr>
+    <tr>
+      <th scope="row">住所</th>
+      <td><%= @customers.address %></td>
+    </tr>
+    <tr>
+      <th scope="row">電話番号</th>
+      <td><%= @customers.telephone_number %></td>
+    </tr>
+    <tr>
+      <th scope="row">メールアドレス</th>
+      <td><%= @customers.email %></td>
+    </tr>
+  </tbody>
+</table>
+

@@ -25,13 +25,16 @@ Rails.application.routes.draw do
     resources :cart_items, only: [:index, :create, :update]
     delete '/cart_items/:id' => 'cart_items#destroy'
     delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
+    resources :orders, only: [:new, :create, :index, :show]
+    post '/orders/comfirm' => 'orders#confirm'
+    get '/orders/complete' => 'orders#complete'
   end
   # 管理者側のルーティング設定
   namespace :admin do
     root to: 'homes#top'
-    
     resources :items
     resources :customers, only: [:index, :show, :edit, :update]
+    resources :orders, only: [:show]
   end
   
   

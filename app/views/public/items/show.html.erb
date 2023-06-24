@@ -1,0 +1,14 @@
+<div class = m-3 >
+<h3><%= @item.name %></h3>
+<p><%= @item.introduction %></p>
+
+<p><strong><%= @item.add_tax_price.to_s(:dalimited) %></strong>(税込)</p>
+
+<%= form_with model: @cart_item, url: cart_items_path do |f| %>
+
+<%= f.number_field :amount, in: 1..20.0, step: 1 %>
+
+<%= f.submit "カートに入れる" %>
+
+<% end %>
+</div>

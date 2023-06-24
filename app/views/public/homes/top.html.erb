@@ -6,8 +6,32 @@
 </div>
 </div>
 <h1 class = "m-5 text-center">新着商品</h1>
-<table class = "container">
-  <tr> <th>IMG</th> <th>IMG</th> <th>IMG</th> <th>IMG</th> </tr>
-  <tr> <td>商品名</td> <td>商品名</td> <td>商品名</td> <td>商品名</td> </tr>
-  <tr> <td>¥0000</td> <td>¥0000</td> <td>¥0000</td> <td>¥0000</td> </tr>
+<div class="d-flex p-2 bd-highlight">
+ <% @item.each do |item| %>
+<table class = "d-flex flex-wrap m-3">
+  <thead>
+    <tr>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <td><% if item.image.attached? %>
+    <%= image_tag item.image, size: "200x200" %>
+  <% else %>
+    <%= image_tag 'no_image', size: "200x200" %>
+  <% end %></td>
+    </tr>
+    <tr>
+      <td><%= link_to item_path(item.id) do %>
+        <%= item.name %>
+      <% end %></td>
+    </tr>
+    <tr>
+      <td><%= item.price %></td>
+    </tr>
+  </tbody>
 </table>
+<% end %>
+</div>
+<%= paginate @item %>
